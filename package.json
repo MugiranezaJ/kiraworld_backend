@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "heroku-postbuild": "babel src -d build",
     "start": "npm run build && node ./build/app.js",
     "start:dev": "nodemon --exec babel-node ./server/app.js",
     "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build ./server/app.js -s",
-    "build": "npm run clean && npm run build-babel"
+    "build-babel": "babel -d ./build ./server/app.js -s"
   },
   "keywords": [],
   "author": "",
