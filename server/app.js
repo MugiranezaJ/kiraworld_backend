@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import routes from './routes'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import { initialize } from './models';
 // require('dotenv').config()
 
 const app = express();
@@ -12,6 +13,12 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/v1', routes)
+
+const db = initialize().then((db) => {
+  db.sequelize.sync({force:false});
+}).catch((err) => {
+  console.log(err.message)
+})
 
 // Initialize with your API keys
 
