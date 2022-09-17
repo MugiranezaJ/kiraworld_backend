@@ -1,8 +1,19 @@
+require('dotenv').config();
 require('@babel/register');
 const path = require('path');
+console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+console.log(process.cwd())
+console.log(path.resolve('./server/seeders'))
+const fs = require('fs');
+
+fs.readdir(path.resolve('./server/seeders'), (err, files) => {
+  files.forEach(file => {
+    console.log(file);
+  });
+});
 module.exports = {
-"config": path.resolve('./server/config', 'db.config.js'),
-"models-path": path.resolve('./server/models'),
-"seeders-path": path.resolve('./server/seeders'),
-"migrations-path": path.resolve('./server/migrations')
+    "config": path.resolve('./server/config', 'db.config.js'),
+    "models-path": path.resolve('./server/models'),
+    "seeders-path": path.resolve('./server/seeders'),
+    "migrations-path": path.resolve('./server/migrations')
 };
