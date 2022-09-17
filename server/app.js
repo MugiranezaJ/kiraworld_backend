@@ -25,7 +25,7 @@ const db = initialize().then((db) => {
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    message: "I am using babel in NodeJS",
+    message: "I am using babel in NodeJS!",
     status: "success",
   });
 });
