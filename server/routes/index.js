@@ -11,5 +11,9 @@ router.post('/make_transfer', Flutterwave.makeTransfer)
 router.post('/make_momo_transfer', Flutterwave.makeMomoTransfer)
 router.post('/charge_card', Flutterwave.makeCardCharge)
 router.post('/validate_otp', Flutterwave.validateChargeOTP)
+
+// Authentication
+router.post('/register', User.register)
 router.post('/login', User.login)
+router.put('/update', User.update)
 export default router

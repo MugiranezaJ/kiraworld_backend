@@ -1,8 +1,8 @@
-// import roles from '../utils/roles';
+import roles from '../utils/roles';
 
 module.exports = function(sequelize, DataTypes){
 
-    return sequelize.define("Users", {
+    const User = sequelize.define("Users", {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -18,29 +18,37 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false,
             unique:true,
         },
-        // tel: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     unique:true
-        // },
         email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique:true,
+        },
+        phone_number: {
             type: DataTypes.STRING,
             allowNull: false,
             unique:true
         },
-        // role: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false, 
-        //     defaultValue: roles.USER
-        // },
-        password:{
-            type:DataTypes.STRING,
+        country: {
+            type: DataTypes.STRING,
             allowNull: false
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        role: {
+            type: DataTypes.STRING,
+            allowNull: false, 
+            defaultValue: roles.USER
         },
         profile_picture: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: 'https://www.cobdoglaps.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile-sq.jpg'
+        },
+        password:{
+            type:DataTypes.STRING,
+            allowNull: false
         },
         created_date: {
             type: DataTypes.DATEONLY,
@@ -56,5 +64,13 @@ module.exports = function(sequelize, DataTypes){
         tableName: 'Users',
         timestamps: false,
     });
-    
-    };
+
+    // User.associate = (models) => {
+    //     User.hasOne(models.wallet, {
+    //       foreignKey: 'wallet_id',
+    //       as: 'userkk',
+    //     });
+    // };
+
+    return User;
+};
