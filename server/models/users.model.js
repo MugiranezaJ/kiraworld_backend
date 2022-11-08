@@ -65,12 +65,12 @@ module.exports = function(sequelize, DataTypes){
         timestamps: false,
     });
 
-    // User.associate = (models) => {
-    //     User.hasOne(models.wallet, {
-    //       foreignKey: 'wallet_id',
-    //       as: 'userkk',
-    //     });
-    // };
+    // User.hasOne(walletModel, {foreignKey: "user_model"})
+    User.associate = (models) => {
+        User.hasOne(models.wallet, {
+          foreignKey: 'user_model',
+        });
+    };
 
     return User;
 };

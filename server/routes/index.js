@@ -16,4 +16,5 @@ router.post('/validate_otp', Flutterwave.validateChargeOTP)
 router.post('/register', User.register)
 router.post('/login', User.login)
 router.put('/update', User.update)
+router.get('/user', User.getUserInfo)
 export default router

@@ -14,6 +14,7 @@ export class User{
         try{
             const db = await initialize();
             const t = await db.sequelize.transaction();
+            console.log(req.body)
             try{
                 let { 
                     name, 
@@ -104,13 +105,13 @@ export class User{
 
     static getUserInfo = async (req, res) => {
         try {
-            const { email } = req.body
+            const { email } = req.query
             const user = await findUserByEmail(email)
             if(!user) return res.status(404).json({status:404, error: `User not found`})
             res.status(200).json({status: 200, data: user})
 
         }catch(error){
-            return res.status.json({status:500, error: error.message})
+            return res.status(500).json({status:500, error: error.message})
         }
     }
 

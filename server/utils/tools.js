@@ -19,7 +19,7 @@ export const verifyToken = async (token) => {
 
 export const findUserByEmail = async (email) => {
     const db = await initialize()
-    const user = await db.users.findOne({where: {email:email}, exclude:['id', 'password', 'created_date', 'updated_at']})
+    const user = await db.users.findOne({where: {email:email}, include: [db.wallet], exclude:['id', 'password', 'created_date', 'updated_at']})
     return user
 }
 
