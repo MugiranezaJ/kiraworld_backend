@@ -11,6 +11,7 @@ router.post('/make_transfer', Flutterwave.makeTransfer)
 router.post('/make_momo_transfer', Flutterwave.makeMomoTransfer)
 router.post('/charge_card', Flutterwave.makeCardCharge)
 router.post('/validate_otp', Flutterwave.validateChargeOTP)
+router.post('/initiate_transfer', Flutterwave.initiateTransfer)
 
 // Authentication
 router.post('/register', User.register)

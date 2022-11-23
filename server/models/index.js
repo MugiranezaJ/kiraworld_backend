@@ -47,6 +47,7 @@ export async function initialize(){
 //   db.test = require("./test.model.js")(sequelize, Sequelize);
   db.users =require("./users.model.js")(sequelize, Sequelize);
   db.wallet =require("./wallet.model.js")(sequelize, Sequelize);
+  db.transactions = require("./transactions.model.js")(sequelize, Sequelize)
 
   Object.keys(db).forEach(function (modelName) {
     if (db[modelName].associate) {

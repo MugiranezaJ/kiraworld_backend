@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/v1', routes)
 
 const db = initialize().then((db) => {
-  db.sequelize.sync({force:true});
+  db.sequelize.sync({force: false});
 }).catch((err) => {
   console.log(err.message)
 })

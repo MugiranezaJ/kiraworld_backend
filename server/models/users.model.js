@@ -70,6 +70,9 @@ module.exports = function(sequelize, DataTypes){
         User.hasOne(models.wallet, {
           foreignKey: 'user_model',
         });
+        User.hasMany(models.transactions, {
+            foreignKey: 'user_model',
+        })
     };
 
     return User;
